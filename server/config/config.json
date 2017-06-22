@@ -4,23 +4,21 @@
     "password": "anjola",
     "database": "postit",
     "host": "127.0.0.1",
-    "port": 5432,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port": 5432
   },
   "test": {
-    "username": "",
+    "username": "root",
     "password": null,
-    "database": "postit-test",
+    "database": "database_test",
     "host": "127.0.0.1",
-    "port": 5432,
-    "dialect": "postgres"
+    "dialect": "mysql"
   },
   "production": {
-    "username": "",
+    "username": "root",
     "password": null,
-    "database": "postit-production",
+    "database": "database_production",
     "host": "127.0.0.1",
-    "port": 5432,
-    "dialect": "postgres"
+    "dialect": "mysql"
   }
 }

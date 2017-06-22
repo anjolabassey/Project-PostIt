@@ -1,53 +1,31 @@
 
 module.exports = (sequelize, DataTypes) => {
-  let user = sequelize.define('user', {
-    userId: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-  
-    },
-    FirstName: {
+  const user = sequelize.define('user', {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    LastName: {
+    },  
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    Username: {
+    },  
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    Email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique:true,
-      validate: {
-        notEmpty: true
-      }
-    },
-    Password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-      }
-    },
+    },  
   }, {
     classMethods: {
       associate: (models) => {
-        // associations can be defined here
-        user.belongsTo(models.groups, {
-          foreignKey: 'userId',
-          as: 'groups',
-        });
         user.hasMany(models.messages, {
-          foreignKey: 'userId',
-          as: 'groups',
+          foreignKey: 'user_id',
+          as: 'messages',
         });
-      },
-    },
+        user.hasMany(models.groupuser, {
+          foreignKey: 'user_id',
+          as: 'groupuser',
+        });
+      }
+    }
   });
   return user;
 };

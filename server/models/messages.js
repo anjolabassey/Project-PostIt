@@ -1,29 +1,28 @@
 
 module.exports = (sequelize, DataTypes) => {
-  let messages = sequelize.define('messages', {
+  const messages = sequelize.define('messages', {
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
+     }, 
+    group_id: {
+      type: DataTypes.INTEGER,
     },
-    title: {
-      type: DataTypes.STRING,
-      
+    user_id: {
+      type: DataTypes.INTEGER,
     },
-    
   }, {
     classMethods: {
       associate: (models) => {
-        // associations can be defined here
-        messages.belongsTo(models.groups, {
-          foreignKey: 'userId',
-          as: 'groups',
-        });
         messages.belongsTo(models.user, {
-          foreignKey: 'userId',
-          as: 'user',
+          foreignKey: 'user_id',
+      
         });
-      },
-    },
+        messages.belongsTo(models.group, {
+          foriegnKey: 'group_id',
+        });
+      }
+    }
   });
   return messages;
 };
