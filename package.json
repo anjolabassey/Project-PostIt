@@ -4,12 +4,11 @@
   "description": "simple message board application",
   "main": "app.js",
   "scripts": {
-    "lint": "eslint postit",
     "start:dev": "nodemon ./bin/www",
+    "lint": "eslint postit",
     "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
     "build": "babel src -d dist"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anjolabassey/postit.git"
@@ -26,9 +25,9 @@
     "express": "^4.15.3",
     "heroku": "^0.2.0",
     "morgan": "^1.8.2",
-    "pg": "^6.2.4",
+    "pg": "^6.4.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.1.0"
+    "sequelize": "^4.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
