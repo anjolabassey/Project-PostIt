@@ -1,5 +1,5 @@
 {
-  "name": "postit",
+  "name": "project-Postit",
   "version": "1.0.0",
   "description": "simple message board application",
   "main": "app.js",
